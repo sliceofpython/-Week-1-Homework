@@ -6,7 +6,7 @@
 import random
 
 #this gets a random value using the randint function from the random module
-theNumber = random.randint(1, 101)
+theNumber = random.randint(1, 100)
 
 #welcome and instructions here
 print("Welcome friend, let's play a game.")
