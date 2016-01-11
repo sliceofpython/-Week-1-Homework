@@ -1,4 +1,3 @@
-```python
 import random
 number = random.randint(1,100)
 print("Guess a number between 1 and 100")
@@ -17,4 +16,3 @@ while not found:
             print("Guess higher!")
             
   # Note: if it is a float or a combination of string and int it just repeats the question.
-  ```
