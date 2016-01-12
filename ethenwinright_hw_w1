@@ -1,0 +1,22 @@
+import random
+
+print('Welcome to The Guessing Game!\n')
+print('Please enter a number: ')    
+
+# takes user's guess
+try:
+    userNum = int(input()) 
+except ValueError:
+    print('Error: You did not enter a number.')
+    quit()
+    
+# chooses random number
+num = random.randint(1, 100)
+
+# checks answer
+if num == userNum:
+    print('Correct! The answer was ' + str(num))
+elif num > userNum:
+    print('Too low. The answer was ' + str(num))
+elif num < userNum:
+    print('Too high. The answer was ' + str(num))
