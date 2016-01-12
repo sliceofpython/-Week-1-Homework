@@ -1,0 +1,36 @@
+#random number 1 - 100
+#15 guess
+#told your right, too high, too low
+
+import random
+
+again = 'yes'
+while again == 'yes':
+  spam=random.randint(1, 100)
+  #print(spam, 'placed inside the loop to gen a new number every time')
+  eggscracked = 15
+  #print(eggscracked, 'comment for testing')
+  print('I have a number in mind, between 1 and 100, care to guess?', eggscracked, 'chances left.')
+  while eggscracked != 0:
+    try:
+      bacon = int(input())
+      if bacon < spam:
+        print(bacon, 'is too low')
+        eggscracked = eggscracked - 1
+        print(eggscracked, 'chances left')
+      elif bacon > spam:
+        print(bacon, 'was too high')
+        eggscracked = eggscracked - 1
+        print(eggscracked, 'chances left')
+      elif bacon == spam:
+        print('You Win!!!')
+        eggscracked = 0
+    except:
+      print('A number... between 1 and 100')
+  else:
+    print(spam, 'was the number')
+    print('Play again? yes or no')
+    again = input()
+else:
+  print('thanks for playing')
+                 
