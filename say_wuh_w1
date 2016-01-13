@@ -1,0 +1,27 @@
+import random
+num = random.randint(1,100)
+chance = 1
+
+print('I\'m thinking of a number from 1-100. \nYou have 6 tries to guess the number.' + str(num))
+guess = int(input())
+
+while guess != num:
+    if chance >= 6:
+        print('GAME OVER. YOU LOSE.')
+        break
+    if guess > num:
+        print('Too high. Guess again.')
+        guess = int(input())
+        chance += 1
+    elif guess < num:
+        print('Too low. Guess again.')
+        guess = int(input())
+        chance += 1
+
+while guess == num:
+    if chance == 1:
+        print('Right on the first try!')
+        break
+    if chance > 1:
+        print('YOU WON IN ' + str(chance) + ' TRIES!')
+        break
