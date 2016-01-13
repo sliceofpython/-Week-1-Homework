@@ -2,7 +2,7 @@ import random
 num = random.randint(1,100)
 chance = 1
 
-print('I\'m thinking of a number from 1-100. \nYou have 6 tries to guess the number.' + str(num))
+print('I\'m thinking of a number from 1-100. \nYou have 6 tries to guess the number.')
 guess = int(input())
 
 while guess != num:
