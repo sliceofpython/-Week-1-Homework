@@ -3,7 +3,7 @@ num = random.randint(1,20)
 chance = 1
 
 print('I\'m thinking of a number from 1-20.\nYou have 6 tries to guess the number.')
-print(num)
+print(num) # for testing purposes
 guess = int(input())
 
 while guess != num:
