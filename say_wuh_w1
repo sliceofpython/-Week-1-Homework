@@ -3,6 +3,7 @@ num = random.randint(1,20)
 chance = 1
 
 print('I\'m thinking of a number from 1-20.\nYou have 6 tries to guess the number.')
+print(num)
 guess = int(input())
 
 while guess != num:
@@ -15,12 +16,26 @@ while guess != num:
     elif chance >= 6:
         print('GAME OVER. YOU LOSE. The correct number was ' + str(num) + '.')
         break
-    elif guess > num:
-        print('Too high. Guess again.')
+    elif guess < num:
+        rangeLow = int(num) - int(guess)
+        if int(rangeLow) >= 5:
+            print('ICE COLD.')
+        elif int(rangeLow) >= 2:
+            print('WARM.')
+        else:
+            print('HOT HOT HOT.')
+        print('Too low. Guess again.')
         guess = int(input())
         chance += 1
-    elif guess < num:
-        print('Too low. Guess again.')
+    elif guess > num:
+        rangeHigh = int(guess) - int(num)
+        if rangeHigh >= 5:
+            print('ICE COLD.')
+        elif rangeHigh >= 2:
+            print('WARM.')
+        else:
+            print('HOT HOT HOT.')
+        print('Too high. Guess again.')
         guess = int(input())
         chance += 1
 
