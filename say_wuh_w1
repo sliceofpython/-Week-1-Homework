@@ -3,49 +3,50 @@ num = random.randint(1,20)
 chance = 4
 
 print('I\'m thinking of a number from 1-20.\nYou have 5 tries to guess the number.')
-print(num)
 guess = int(input())
-hotCold = abs(int(num - guess))
 
 while guess != num:
-
-    if chance == 0:
-        print('GAME OVER. YOU LOSE. The correct number was ' + str(num) + '.')
-        break   
-    elif guess < 1:
+    if guess < 1:
         print('Between 1-20, dummy.')
         guess = int(input())
     elif guess > 20:
         print('Between 1-20, dummy.')
-        guess = int(input()) 
-        
-    if guess > num:
-        if hotCold >= 5:
+        guess = int(input())
+    elif chance == 0:
+        print('GAME OVER. YOU LOSE. The correct number was ' + str(num) + '.')
+        break
+    
+    elif guess < num:
+        rangeLow = int(num) - int(guess)
+        if int(rangeLow) >= 5:
             print('ICE COLD.')
-            print('Go lower. You have ' + str(chance) + ' tries remaining.')
-        elif 4 >= hotCold >= 2:
-            print('WARMER.')
-            print('Go lower. You have ' + str(chance) + ' tries remaining.')
-        elif hotCold == 1:
+        elif int(rangeLow) >= 2:
+            print('WARM.')
+        else:
             print('HOT HOT HOT!')
-            print('Go lower. You have ' + str(chance) + ' try remaining.')
+
+        if chance == 1:
+            print('Go higher. This is your LAST CHANCE.')
+        else:
+            print('Go higher. You have ' + str(chance) + ' tries remaining.')
         guess = int(input())
         chance -= 1
-        hotCold = abs(int(num - guess))
-        
-    if guess < num:
-        if hotCold >= 5:
+    
+    elif guess > num:
+        rangeHigh = int(guess) - int(num)
+        if rangeHigh >= 5:
             print('ICE COLD.')
-            print('Go higher. You have ' + str(chance) + ' tries remaining.')
-        elif 4 >= hotCold >= 2:
-            print('WARMER.')
-            print('Go higher. You have ' + str(chance) + ' tries remaining.')
-        elif hotCold == 1:
-            print('HOT HOT HOT!')
-            print('Go higher. You have ' + str(chance) + ' try remaining.')
+        elif rangeHigh >= 2:
+            print('WARM.')
+        else:
+            print('HOT HOT HOT.')
+
+        if chance == 1:
+            print('Go lower. This is your LAST CHANCE.')
+        else:
+            print('Go lower. You have ' + str(chance) + ' tries remaining.')
         guess = int(input())
         chance -= 1
-        hotCold = abs(int(num - guess))
 
 while guess == num:
     if chance == 4:
