@@ -1,9 +1,8 @@
 import random
 num = random.randint(1,20)
-chance = 1
+chance = 4
 
-print('I\'m thinking of a number from 1-20.\nYou have 6 tries to guess the number.')
-print(num) # for testing purposes
+print('I\'m thinking of a number from 1-20.\nYou have 5 tries to guess the number.')
 guess = int(input())
 
 while guess != num:
@@ -13,9 +12,10 @@ while guess != num:
     elif guess > 20:
         print('Between 1-20, dummy.')
         guess = int(input())
-    elif chance >= 6:
+    elif chance == 0:
         print('GAME OVER. YOU LOSE. The correct number was ' + str(num) + '.')
         break
+    
     elif guess < num:
         rangeLow = int(num) - int(guess)
         if int(rangeLow) >= 5:
@@ -23,10 +23,14 @@ while guess != num:
         elif int(rangeLow) >= 2:
             print('WARM.')
         else:
-            print('HOT HOT HOT.')
-        print('Too low. Guess again.')
+            print('HOT HOT HOT!')
+        if chance == 1:
+            print('Go higher. You have ' + str(chance) + ' try remaining.')
+        else:
+            print('Go higher. You have ' + str(chance) + ' tries remaining.')
         guess = int(input())
-        chance += 1
+        chance -= 1
+    
     elif guess > num:
         rangeHigh = int(guess) - int(num)
         if rangeHigh >= 5:
@@ -35,14 +39,17 @@ while guess != num:
             print('WARM.')
         else:
             print('HOT HOT HOT.')
-        print('Too high. Guess again.')
+        if chance == 1:
+            print('Go lower. You have ' + str(chance) + ' try remaining.')
+        else:
+            print('Go lower. You have ' + str(chance) + ' tries remaining.')
         guess = int(input())
-        chance += 1
+        chance -= 1
 
 while guess == num:
-    if chance == 1:
+    if chance == 4:
         print('Right on the first try!')
         break
-    if chance > 1:
-        print('YOU WON IN ' + str(chance) + ' TRIES!')
+    if chance < 4:
+        print('YOU WON IN ' + str(5 - chance) + ' TRIES!')
         break
