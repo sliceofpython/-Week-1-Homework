@@ -24,8 +24,9 @@ while guess != num:
             print('WARM.')
         else:
             print('HOT HOT HOT!')
+
         if chance == 1:
-            print('Go higher. You have ' + str(chance) + ' try remaining.')
+            print('Go higher. This is your LAST CHANCE.')
         else:
             print('Go higher. You have ' + str(chance) + ' tries remaining.')
         guess = int(input())
@@ -39,8 +40,9 @@ while guess != num:
             print('WARM.')
         else:
             print('HOT HOT HOT.')
+
         if chance == 1:
-            print('Go lower. You have ' + str(chance) + ' try remaining.')
+            print('Go lower. This is your LAST CHANCE.')
         else:
             print('Go lower. You have ' + str(chance) + ' tries remaining.')
         guess = int(input())
@@ -50,6 +52,6 @@ while guess == num:
     if chance == 4:
         print('Right on the first try!')
         break
-    if chance < 4:
+    elif chance < 4:
         print('YOU WON IN ' + str(5 - chance) + ' TRIES!')
         break
